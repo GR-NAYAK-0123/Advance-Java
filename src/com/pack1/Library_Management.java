@@ -132,12 +132,12 @@ public class Library_Management {
 			System.out.println();
 			System.out.println("Please select the operation that you want to do : ");
 			System.out.println();
-			System.out.println("----------------------------------------------------");
+			System.out.println("|--------------------------------------------------|");
 			System.out.println("|  Press 1 : Adding a book to the Library          |");
 			System.out.println("|  Press 2 : Retrieving all data from the Library  |");
 			System.out.println("|  Press 3 : Deleting a book to the Library        |");
 			System.out.println("|  Press 4 : For Exit                              |");
-			System.out.println("----------------------------------------------------");
+			System.out.println("|--------------------------------------------------|");
 			System.out.println();
 			
 			int choice = Integer.parseInt(sc.next());
