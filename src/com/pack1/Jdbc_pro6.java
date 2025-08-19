@@ -15,6 +15,9 @@ public class Jdbc_pro6 {
 	String useName = "system";
 	String pwd = "root";
 	String query1 = "select * from ";
+	String query2 = "insert into Employee values ('205', 'Islam', 'Makhachev', 45000, 'Russia')";
+	String query3 = "select * from Employee where Eid = '101'";
+	String query4 = "update Employee set ESal = 200000 where Eid = '101'";
 	
 	Scanner sc = new Scanner(System.in);
 	
@@ -126,11 +129,37 @@ public class Jdbc_pro6 {
 			e.printStackTrace();
 		}
 	}
+	void updatingSpecificData() {
+		
+		System.out.println("Updating the specific data from the Employee table");
+		
+		System.out.println("Please enter the Employee Id : ");
+		String empId = sc.next();
+		System.out.println("Enter the Salary : ");
+		int empSal = Integer.parseInt(sc.next());
+		
+		try {
+			Connection con = getConnect();
+			Statement stm = con.createStatement();
+			int rowCount = stm.executeUpdate("update Employee set ESal = "+empSal+" where Eid = '"+empId+"'");
+
+			if(rowCount > 0) {
+				System.out.println("The specific data is Updated");
+				retrieveData();
+			}
+			else {
+				System.out.println("There is no such Employee Id is there as : "+empId);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 	public static void main(String[] args) {
 		Jdbc_pro6 obj = new Jdbc_pro6();
 		//obj.retrieveData();
 		//obj.insertData();
-		obj.retrievingSpecificData();
+		//obj.retrievingSpecificData();
+		obj.updatingSpecificData();
 	}
 }
 
