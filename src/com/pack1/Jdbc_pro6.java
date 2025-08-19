@@ -18,6 +18,7 @@ public class Jdbc_pro6 {
 	String query2 = "insert into Employee values ('205', 'Islam', 'Makhachev', 45000, 'Russia')";
 	String query3 = "select * from Employee where Eid = '101'";
 	String query4 = "update Employee set ESal = 200000 where Eid = '101'";
+	String query5 = "delete from Employee where Eid = '110'";
 	
 	Scanner sc = new Scanner(System.in);
 	
@@ -154,12 +155,35 @@ public class Jdbc_pro6 {
 			e.printStackTrace();
 		}
 	}
+	void deletingSpecificData() {
+		
+		System.out.println("Deleting the specific data from the Employee table");
+		System.out.println("Please enter the Employee Id : ");
+		String empId = sc.next();
+		
+		try {
+			Connection con = getConnect();
+			 Statement stm = con.createStatement();
+			 int rowCount = stm.executeUpdate("delete from Employee where Eid = '"+empId+"'");
+			 
+			 if(rowCount > 0) {
+				 System.out.println("The row is deleted successfully");
+				 retrieveData();
+			 } else {
+				 System.out.println("There is no such Employee Id is there : "+empId);
+			 }
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 	public static void main(String[] args) {
 		Jdbc_pro6 obj = new Jdbc_pro6();
 		//obj.retrieveData();
 		//obj.insertData();
 		//obj.retrievingSpecificData();
-		obj.updatingSpecificData();
+		//obj.updatingSpecificData();
+		obj.deletingSpecificData();
 	}
 }
 
