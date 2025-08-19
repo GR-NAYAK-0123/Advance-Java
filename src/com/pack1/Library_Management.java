@@ -15,7 +15,7 @@ public class Library_Management {
 	String userName = "system";
 	String pwd = "root";
 	
-	Scanner sc = new Scanner(System.in);
+	static Scanner sc = new Scanner(System.in);
 	
 	Connection getConnect(){
 		Connection con = null;
@@ -125,6 +125,47 @@ public class Library_Management {
 		Library_Management obj = new Library_Management();
 		//obj.addBook();
 		//obj.retrieveBook();
-		obj.deleteBook();
+		//obj.deleteBook();
+		boolean flag = true;
+		while(flag) {
+			
+			System.out.println();
+			System.out.println("Please select the operation that you want to do : ");
+			System.out.println();
+			System.out.println("----------------------------------------------------");
+			System.out.println("|  Press 1 : Adding a book to the Library          |");
+			System.out.println("|  Press 2 : Retrieving all data from the Library  |");
+			System.out.println("|  Press 3 : Deleting a book to the Library        |");
+			System.out.println("|  Press 4 : For Exit                              |");
+			System.out.println("----------------------------------------------------");
+			System.out.println();
+			
+			int choice = Integer.parseInt(sc.next());
+			
+			switch(choice) {
+			
+			      case 1 :
+			    	  obj.addBook();
+			    	  break;
+			      case 2 :
+			    	  obj.retrieveBook();
+			    	  break;
+			      case 3 :
+			    	  obj.deleteBook();
+			    	  break;
+			      case 4 :
+			    	  System.out.println("Exited !!!");
+			    	  flag = false;
+			    	  break;
+			      default : 
+			    	  System.out.println("Inavlid choice");
+			    	  flag = true;
+			}
+			
+			if(!flag) {
+				break;
+			}
+			
+		}
 	}
 }
