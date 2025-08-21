@@ -16,7 +16,7 @@ public class Jdbc_pro2 {
 		String uname = "system";
 		String pwd = "root";
 		String query = "select * from Employee";
-		String query1 = "select * from Employee where Eid = '101'";
+		//String query1 = "select * from Employee where Eid = '101'";
 		
 		
 		try {
