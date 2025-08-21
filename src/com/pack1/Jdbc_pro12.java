@@ -42,7 +42,7 @@ public class Jdbc_pro12 {
 			crs.acceptChanges(con);
 			con.close();
 
-//			crs.acceptChanges();  // Before it works but right now we need to give the explicit connection that give in the above
+//			crs.acceptChanges();  // Before, it works perfectly but right now we need to give the explicit connection that given at the above
 			System.out.println("Data is updated");
 			
 			System.out.println("----------------");
